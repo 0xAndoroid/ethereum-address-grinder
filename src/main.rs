@@ -21,24 +21,22 @@ fn thread_logic(id: u8) {
         hasher.update(pubkey_vec);
         let mut address = String::from("0x");
         address.push_str(&hex::encode(&hasher.finalize().to_vec()[12..32]));
-        if     address.starts_with("0x00000000")
-            || address.starts_with("0x11111111")
-            || address.starts_with("0x22222222")
-            || address.starts_with("0x33333333")
-            || address.starts_with("0x44444444")
-            || address.starts_with("0x55555555")
-            || address.starts_with("0x66666666")
-            || address.starts_with("0x77777777")
-            || address.starts_with("0x88888888")
-            || address.starts_with("0x99999999")
-            || address.starts_with("0xaaaaaaaa")
-            || address.starts_with("0xbbbbbbbb")
-            || address.starts_with("0xcccccccc")
-            || address.starts_with("0xdddddddd")
-            || address.starts_with("0xeeeeeeee")
-            || address.starts_with("0xffffffff")
-            || address.starts_with("0x314159")
-            || address.starts_with("0x1234567") {
+        if     address.starts_with("0x000000")
+            || address.starts_with("0x111111")
+            || address.starts_with("0x222222")
+            || address.starts_with("0x333333")
+            || address.starts_with("0x444444")
+            || address.starts_with("0x555555")
+            || address.starts_with("0x666666")
+            || address.starts_with("0x777777")
+            || address.starts_with("0x888888")
+            || address.starts_with("0x999999")
+            || address.starts_with("0xaaaaaa")
+            || address.starts_with("0xbbbbbb")
+            || address.starts_with("0xcccccc")
+            || address.starts_with("0xdddddd")
+            || address.starts_with("0xeeeeee")
+            || address.starts_with("0xffffff") {
             println!("Found address {}. Saved private key to file", address);
             std::fs::write(address, secret_key.display_secret().to_string());
         }
