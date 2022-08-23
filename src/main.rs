@@ -3,7 +3,7 @@ use rand::thread_rng;
 use sha3::{Digest, Keccak256};
 
 fn main() {
-    for i in 0..10 {
+    for i in 0..10 {  //The amount of threads to use
         let handle = std::thread::spawn(move || thread_logic(i));
         if i==9 {
             handle.join().unwrap();
@@ -21,6 +21,7 @@ fn thread_logic(id: u8) {
         hasher.update(pubkey_vec);
         let mut address = String::from("0x");
         address.push_str(&hex::encode(&hasher.finalize().to_vec()[12..32]));
+        //Address matching
         if     address.starts_with("0x000000")
             || address.starts_with("0x111111")
             || address.starts_with("0x222222")

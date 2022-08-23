@@ -45,7 +45,7 @@ dependencies = [
 
 [[package]]
 name = "ethereum-address-grinder"
-version = "0.1.0"
+version = "1.0.0"
 dependencies = [
  "hex",
  "rand",
