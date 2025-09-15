@@ -1,3 +1,4 @@
+use rand::rngs::OsRng;
 use secp256k1::{All, Secp256k1};
 use sha3::{Digest, Keccak256};
 use std::sync::atomic::{AtomicU64, Ordering};
@@ -30,7 +31,7 @@ fn main() {
 
 fn thread_logic(id: u8, start_time: Arc<Instant>) {
     let secp = Secp256k1::<All>::new();
-    let mut rng = rand::thread_rng();
+    let mut rng = OsRng;
     let mut local_count: u64 = 0;
     let mut buffer = [0u8; 65];
     let mut address_bytes = [0u8; 20];
