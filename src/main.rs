@@ -11,7 +11,7 @@ static FOUND_COUNT: AtomicU64 = AtomicU64::new(0);
 fn main() {
     let num_threads = num_cpus::get();
     println!("Starting wallet grinder with {num_threads} threads");
-    println!("Looking for addresses starting with eight consecutive 8s");
+    println!("Looking for addresses starting with ten consecutive 8s after 0x");
 
     let start_time = Arc::new(Instant::now());
     let mut handles = vec![];
